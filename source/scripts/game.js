@@ -1,0 +1,1 @@
+scenes.start_screen.load();
