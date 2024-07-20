@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="20"
+   height="20"
+   viewBox="0 0 5.2916665 5.2916666"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3.2 (091e20ef0f, 2023-11-25)"
+   sodipodi:docname="plus_hover.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="15.985057"
+     inkscape:cx="16.765658"
+     inkscape:cy="12.542964"
+     inkscape:window-width="1920"
+     inkscape:window-height="1003"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <text
+       xml:space="preserve"
+       style="font-size:4.9389px;font-family:Monospace;-inkscape-font-specification:Monospace;fill:#000000;stroke:#fff360;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
+       x="1.1987933"
+       y="4.5160069"
+       id="text1-9"><tspan
+         sodipodi:role="line"
+         id="tspan1-1"
+         style="stroke:#fff360;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
+         x="1.1987933"
+         y="4.5160069">+</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:4.9389px;font-family:Monospace;-inkscape-font-specification:Monospace;fill:#000000;stroke:#000000;stroke-width:0.5;stroke-dasharray:none"
+       x="1.1852078"
+       y="4.4528537"
+       id="text1"><tspan
+         sodipodi:role="line"
+         id="tspan1"
+         style="stroke-width:0.5;stroke-dasharray:none"
+         x="1.1852078"
+         y="4.4528537">+</tspan></text>
+  </g>
+</svg>
