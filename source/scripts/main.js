@@ -11,6 +11,7 @@ class SpriteImage {
 }
 
 let sprites = {};
+    sprites.loaded = false;
 
 sprites.click_to_start = new SpriteImage("./data/sprites/click-to-start.svg");
 sprites.logo           = new SpriteImage("./data/sprites/logo.svg");
@@ -22,7 +23,7 @@ for (let i = 0; i < 5; i++) {
 
 canvas.addEventListener("mousemove", (event) => {
     if (event.clientX-canvas.offsetLeft > 400) {
-           sprites.logo.shift.x -= 1;
+        sprites.logo.shift.x -= 1;
     } else sprites.logo.shift.x += 1;
     if (event.clientY-canvas.offsetTop > 300) {
         sprites.logo.shift.y -= 1;
@@ -33,7 +34,40 @@ canvas.addEventListener("mousemove", (event) => {
     if (sprites.logo.shift.y < -5)  sprites.logo.shift.y = -5;
 });
 
-sprites.logo.image.onload = function(){
+function load () {
+  for (let sprite in sprites) {
+    if (sprite.image) {
+        sprite.image.onload = ()=> {
+            sprite.loaded = true; 
+        }
+    } else if (Array.isArray(sprite)) {
+        for (let i = 0; i < sprite.length; i++) {
+            sprite[i].image.onload = ()=> {
+                sprite.loaded = true; 
+            }
+        }
+    }
+  }
+    
+  sprites.interval_load = setInterval(()=>{
+    let check = true;
+    for (let sprite in sprites) {
+        if (sprite.image) {
+            if (sprite.loaded == false) check = false;
+        } else if (Array.isArray(sprite)) {
+            for (let i = 0; i < sprite.length; i++) {
+                if (sprite[i].loaded == false) check = false;
+            }
+        }
+    } sprites.loaded = check;
+
+    if (sprites.loaded == true) {
+       draw();
+       clearInterval(sprites.interval_load);
+    }
+  },10);
+}
+function draw (){
      sprites.logo.interval = setInterval( ()=>{
         ctx.fillStyle = "white";
         ctx.fillRect(0, 0, 800, 600);
@@ -48,3 +82,4 @@ sprites.logo.image.onload = function(){
         if (sprites.background.timer > 4) sprites.background.timer = 0;
      },100);
 };
+load();
