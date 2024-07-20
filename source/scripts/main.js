@@ -1,40 +1,43 @@
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
+class SpriteImage {
+    constructor (src) {
+        this.image = new Image();
+        this.image.src = src;
+    }
+}
 
-let image_click_to_start = new Image();
-    image_click_to_start.src = "./data/sprites/click-to-start.svg";
-let image_logo = new Image();
-    image_logo.src = "./data/sprites/logo.svg";
+let click_to_start = new SpriteImage("./data/sprites/click-to-start.svg");
+let logo = new SpriteImage("./data/sprites/logo.svg");
 
-let check_click_to_start = false;
-let parameter_logo_x = 0;
-let parameter_logo_y = 0;
+click_to_start.timer = 0;
+logo.shift  = {};
+logo.shift.x = 0;
+logo.shift.y = 0;
 
 canvas.addEventListener("mousemove", (event) => {
-    console.log(event.clientX-canvas.offsetLeft);
-    if(event.clientX-canvas.offsetLeft>400){
-           parameter_logo_x -= 1;
-    } else parameter_logo_x += 1;
-    if(event.clientY-canvas.offsetTop>300){
-        parameter_logo_y -= 1;
- } else parameter_logo_y += 1;
-    if (parameter_logo_x >  10) parameter_logo_x =  10;
-    if (parameter_logo_x < -10) parameter_logo_x = -10;
-    if (parameter_logo_y >  5) parameter_logo_y =  5;
-    if (parameter_logo_y < -5) parameter_logo_y = -5;
+    if (event.clientX-canvas.offsetLeft > 400) {
+           logo.shift.x -= 1;
+    } else logo.shift.x += 1;
+    if (event.clientY-canvas.offsetTop > 300) {
+        logo.shift.y -= 1;
+ } else logo.shift.y += 1;
+    if (logo.shift.x >  10) logo.shift.x =  10;
+    if (logo.shift.x < -10) logo.shift.x = -10;
+    if (logo.shift.y >  5)  logo.shift.y =  5;
+    if (logo.shift.y < -5)  logo.shift.y = -5;
 });
-let i = 0;
-image_logo.onload = function(){
-     
-     let interval_click_to_start = setInterval( ()=>{
+
+logo.image.onload = function(){
+     logo.interval = setInterval( ()=>{
         ctx.fillStyle = "white";
         ctx.fillRect(0, 0, 800, 600);
-        ctx.drawImage(image_logo, 0 + parameter_logo_x, 0  + parameter_logo_y, 800, 600);
-        if (i > 0 && i < 5) {
-                ctx.drawImage(image_click_to_start, 325, 500, 150, 20);
+        ctx.drawImage(logo.image, 0 + logo.shift.x, 0  + logo.shift.y, 800, 600);
+        if (click_to_start.timer >= 0 && click_to_start.timer < 5) {
+                ctx.drawImage(click_to_start.image, 325, 500, 150, 20);
         }
-        i++;
-        if (i > 10) i = 0;
+        click_to_start.timer++;
+        if (click_to_start.timer > 10) click_to_start.timer = 0;
      },100);
 };
