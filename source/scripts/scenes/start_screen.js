@@ -16,7 +16,7 @@ scenes["start_screen"] = new GameScene("start_screen", sprites);
 
 // Draw sprites and the game
 scenes.start_screen.draw = function () {
-     scenes.start_screen.sprites.logo.interval = setInterval( ()=>{
+     scenes.start_screen.sprites.interval = setInterval( ()=>{
         ctx.fillStyle = "white";
         ctx.fillRect(0, 0, 800, 600);
         ctx.drawImage(scenes.start_screen.sprites.background[scenes.start_screen.sprites.background.timer].image, 0, 0, 800, 600);
@@ -45,3 +45,8 @@ scenes.start_screen.control_mousemove = function (event) {
     if (scenes.start_screen.sprites.logo.shift.y < -5)  scenes.start_screen.sprites.logo.shift.y = -5;
 }
 
+scenes.start_screen.control_mouseclick = function (event) {
+    clearInterval(scenes.start_screen.sprites.interval);
+    scenes.start_screen.unload();
+    scenes.character_screen.load();
+}

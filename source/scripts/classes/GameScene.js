@@ -34,19 +34,25 @@ class GameScene {
         
             // If they loaded, finish the loading and start drawing the game
             if (this.sprites.loaded == true) {
+                clearInterval(this.sprites.interval_load);
                 this.draw();
-               clearInterval(this.sprites.interval_load);
             }
           },10); 
         
         // Attach control to the scene
         canvas.addEventListener("mousemove", this.control_mousemove);
+        canvas.addEventListener("click"    , this.control_mouseclick);
     }
     draw   () {}
     control_mousemove (event) {
         console.log("mousemove");
     }
+    control_mouseclick (event) {
+        console.log("mouseclick");
+    }
     unload () {
-        canvas.removeEventListener("mousemove", control_mousemove);
+        canvas.removeEventListener("mousemove" , this.control_mousemove);
+        canvas.removeEventListener("click", this.control_mouseclick);
+        this.sprites = {};
     }
 }
