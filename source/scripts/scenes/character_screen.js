@@ -9,6 +9,8 @@ sprites.char2 = new SpriteImage("./data/sprites/character_screen/char2.svg");
 sprites.plus = new SpriteImage("./data/sprites/character_screen/plus.svg");
 sprites.plus_hover = new SpriteImage("./data/sprites/character_screen/plus_hover.svg");
 sprites.plus_click = new SpriteImage("./data/sprites/character_screen/plus_click.svg");
+sprites.arrow_left  = new SpriteImage("./data/sprites/character_screen/arrow-left.svg");
+sprites.arrow_right = new SpriteImage("./data/sprites/character_screen/arrow-right.svg");
 sprites.number0 = new SpriteImage("./data/sprites/common/numbers/0.svg");
 sprites.number1 = new SpriteImage("./data/sprites/common/numbers/1.svg");
 sprites.number2 = new SpriteImage("./data/sprites/common/numbers/2.svg");
@@ -46,6 +48,8 @@ scenes.character_screen.draw = function () {
          ctx.drawImage(scenes.character_screen.sprites.char2.image, 288, 280, 225, 300);
          i = 1; 
        }
+       ctx.drawImage(scenes.character_screen.sprites.arrow_left.image , 160, 400, 75, 75);
+       ctx.drawImage(scenes.character_screen.sprites.arrow_right.image, 560, 400, 75, 75);
     },100);
 };
 
