@@ -3,12 +3,12 @@ sprites = {};
 sprites.loaded = false; // when all sprites inside loaded - it true
 
 // Create sprites images (also trigger onload in the image object)
-sprites.click_to_start = new SpriteImage("./data/sprites/click-to-start.svg");
-sprites.logo           = new SpriteImage("./data/sprites/logo.svg"); 
+sprites.click_to_start = new SpriteImage("./data/sprites/start_screen/click-to-start.svg");
+sprites.logo           = new SpriteImage("./data/sprites/start_screen/logo.svg"); 
 sprites.background     = [];
 sprites.background.timer = 0; // in array possible to set the common parameter as in object
 for (let i = 0; i < 5; i++) {
-    sprites.background[i] = new SpriteImage("./data/sprites/background" + i + ".svg");
+    sprites.background[i] = new SpriteImage("./data/sprites/start_screen/background" + i + ".svg");
 }
 
 // Create the scene
