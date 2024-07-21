@@ -4,6 +4,8 @@ sprites.loaded = false; // when all sprites inside loaded - it true
 
 // Create sprites images (also trigger onload in the image object)
 sprites.text = new SpriteImage("./data/sprites/character_screen/text.svg");
+sprites.char1 = new SpriteImage("./data/sprites/character_screen/char1.svg");
+sprites.char2 = new SpriteImage("./data/sprites/character_screen/char2.svg");
 sprites.plus = new SpriteImage("./data/sprites/character_screen/plus.svg");
 sprites.plus_hover = new SpriteImage("./data/sprites/character_screen/plus_hover.svg");
 sprites.plus_click = new SpriteImage("./data/sprites/character_screen/plus_click.svg");
@@ -25,6 +27,7 @@ let player_memory_plus_state = "plus";
 let player_focus_plus_state  = "plus";
 let player_imagination_plus_state = "plus";
 
+let i = 1;
 scenes.character_screen.draw = function () {
     scenes.character_screen.sprites.interval = setInterval( ()=>{
        ctx.fillStyle = "white";
@@ -36,6 +39,13 @@ scenes.character_screen.draw = function () {
        ctx.drawImage(scenes.character_screen.sprites["number"+player.focus].image, 535, 125, 30, 40);
        ctx.drawImage(scenes.character_screen.sprites[player_imagination_plus_state].image, 575, 170, 75, 75);
        ctx.drawImage(scenes.character_screen.sprites["number"+player.imagination].image, 535, 190, 30, 40);
+       if (i == 1) {
+         ctx.drawImage(scenes.character_screen.sprites.char1.image, 288, 280, 225, 300);
+         i = 2;
+       } else if (i == 2) {
+         ctx.drawImage(scenes.character_screen.sprites.char2.image, 288, 280, 225, 300);
+         i = 1; 
+       }
     },100);
 };
 
